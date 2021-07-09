@@ -43,6 +43,8 @@ static const UInt32 s_launchpadVK = 131;
 
 static const UInt32 s_osxNumLock = 1 << 16;
 
+static const UInt32 s_yenVK = 93;
+
 struct KeyEntry {
 public:
     KeyID                m_keyID;
@@ -125,8 +127,9 @@ static const KeyEntry    s_controlKeys[] = {
     { kKeyBrightnessDown, s_brightnessDown },
 
     // JIS keyboards only
-    { kKeyEisuToggle, kVK_JIS_Eisu },
-    { kKeyKana, kVK_JIS_Kana }
+    { 0x005c,		kVK_JIS_Yen},
+    { kKeyMuhenkan, kVK_JIS_Eisu },
+    { kKeyHenkan, kVK_JIS_Kana }
 };
 
 
@@ -813,7 +816,7 @@ OSXKeyState::handleModifierKeys(void* target,
                             (newMask & KeyModifierAlt) != 0, newMask);
     }
     if ((changed & KeyModifierSuper) != 0) {
-        handleModifierKey(target, s_superVK, kKeySuper_L,
+        handleModifierKey(target, s_superVK, kKeySuper_R,
                             (newMask & KeyModifierSuper) != 0, newMask);
     }
     if ((changed & KeyModifierCapsLock) != 0) {
