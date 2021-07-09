@@ -43,8 +43,6 @@ static const UInt32 s_launchpadVK = 131;
 
 static const UInt32 s_osxNumLock = 1 << 16;
 
-static const UInt32 s_yenVK = 93;
-
 struct KeyEntry {
 public:
     KeyID                m_keyID;
