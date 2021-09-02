@@ -130,9 +130,9 @@ static const KeyEntry    s_controlKeys[] = {
     // JIS keyboards only
     { kKeyEisuToggle, kVK_JIS_Eisu },
     { kKeyKana, kVK_JIS_Kana },
-    { kKeyMuhenkan, s_int5VK },
-    { kKeyHenkan, s_int4VK },
     { kKeyZenkaku, kVK_ANSI_Grave }
+    { kKeyMuhenkan, kVK_JIS_Eisu },
+    { kKeyHenkan, kVK_JIS_Kana }
 };
 
 
@@ -819,7 +819,7 @@ OSXKeyState::handleModifierKeys(void* target,
                             (newMask & KeyModifierAlt) != 0, newMask);
     }
     if ((changed & KeyModifierSuper) != 0) {
-        handleModifierKey(target, s_superVK, kKeySuper_L,
+        handleModifierKey(target, s_superVK, kKeySuper_R,
                             (newMask & KeyModifierSuper) != 0, newMask);
     }
     if ((changed & KeyModifierCapsLock) != 0) {
